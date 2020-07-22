@@ -29,4 +29,8 @@ class Library
   def checked_out_books
     @books.find_all { |book| book.checked_out }
   end
+
+  def return(book)
+    book.return if @books.include?(book) && book.checked_out
+  end
 end
