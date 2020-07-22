@@ -33,4 +33,8 @@ class Library
   def return(book)
     book.return if @books.include?(book) && book.checked_out
   end
+
+  def most_popular_book
+    @books.max_by { |book| book.checkout_count }
+  end
 end
