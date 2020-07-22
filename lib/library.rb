@@ -8,4 +8,13 @@ class Library
     @books = []
     @authors = []
   end
+
+  def add_author(author)
+    @authors << author
+    author.books.each { |book| @books << book  }
+  end
+
+  def publication_time_frame_for(author)
+    
+  end
 end
