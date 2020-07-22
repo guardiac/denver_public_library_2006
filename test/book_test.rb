@@ -22,4 +22,20 @@ class BookTest < Minitest::Test
   def test_it_has_publication_year
     assert_equal "1960", @book.publication_year
   end
+
+  def test_that_book_can_be_checked_out
+    assert_equal false, @book.checked_out
+
+    @book.checkout
+
+    assert_equal true, @book.checked_out
+  end
+
+  def test_it_can_be_returned
+    @book.checkout
+    assert_equal true, @book.checked_out
+
+    @book.return
+    assert_equal false, @book.checked_out
+  end
 end
