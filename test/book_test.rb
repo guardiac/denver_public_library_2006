@@ -38,4 +38,15 @@ class BookTest < Minitest::Test
     @book.return
     assert_equal false, @book.checked_out
   end
+
+  def test_it_knows_checkout_count
+    assert_equal 0, @book.checkout_count
+
+    @book.checkout
+    assert_equal 1, @book.checkout_count
+
+    @book.return
+    @book.checkout
+    assert_equal 2, @book.checkout_count
+  end
 end
