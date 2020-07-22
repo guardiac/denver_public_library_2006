@@ -15,6 +15,6 @@ class Library
   end
 
   def publication_time_frame_for(author)
-    
+    {start: author.first_book.publication_year, end: author.last_book.publication_year}
   end
 end
