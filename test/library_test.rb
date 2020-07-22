@@ -59,4 +59,11 @@ class LibraryTest < Minitest::Test
 
     assert_equal true, @dpl.checkout(@jane_eyre)
   end
+
+  def test_it_know_which_books_are_checked_out
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.checkout(@jane_eyre)
+
+    assert_equal [@jane_eyre], @dpl.checked_out_books
+  end
 end
